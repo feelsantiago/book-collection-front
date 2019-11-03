@@ -42,11 +42,7 @@ const handleSubmit = (
 		try {
 			const result = await AuthApi.login({ email: values.email, password: values.password });
 
-			authService.setAuthentication(
-				result.token,
-				{ email: result.email, role: result.role, name: result.name },
-				values.remember
-			);
+			authService.setAuthentication(result.token, result.user, values.remember);
 
 			// navigate to home
 			history.push('/');
