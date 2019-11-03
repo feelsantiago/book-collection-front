@@ -13,14 +13,11 @@ const Header: FunctionComponent = () => {
 	return (
 		<HeaderStyle>
 			<HeaderLogo>
-				<HeaderTitle>KixPay Reports</HeaderTitle>
+				<HeaderTitle>Acervo</HeaderTitle>
 			</HeaderLogo>
 			<Menu theme="dark" mode="horizontal" selectedKeys={[ location.pathname ]}>
-				<Item key="/explore">
-					<Link to="/explore">Explore</Link>
-				</Item>
 				<Item key="/">
-					<Link to="/">Dashboard</Link>
+					<Link to="/">Inicio</Link>
 				</Item>
 				<Item key="/logout" style={{ float: 'right' }}>
 					<Link
@@ -28,7 +25,7 @@ const Header: FunctionComponent = () => {
 						onClick={() => {
 							authService.logout();
 						}}>
-						Logout
+						Sair
 					</Link>
 				</Item>
 			</Menu>
