@@ -34,7 +34,8 @@ export const LoginSubmitButton = styled((props) => <Button {...props} />)`
 export const LoginForgot = styled.a`float: right;`;
 
 export const LoginLogo = styled.img`
-	width: 200px;
+	width: 80px;
+	height: 80px;
 	margin-right: 8px;
 `;
 

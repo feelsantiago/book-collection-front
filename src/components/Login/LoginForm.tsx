@@ -74,24 +74,22 @@ const LoginForm: FunctionComponent<FormComponentProps> = ({ form }) => {
 						e.preventDefault();
 						handleSubmit(form, history, setLoading);
 					}}>
-					<Form.Item label={<LoginLabel>Email Address</LoginLabel>}>
+					<Form.Item label={<LoginLabel>Email</LoginLabel>}>
 						{getFieldDecorator('email', {
-							rules: [ { required: true, message: 'Enter a valid e-mail address!' } ]
-						})(<LoginInput placeholder="Enter your email address" />)}
+							rules: [ { required: true, message: 'Digite um email valido!' } ]
+						})(<LoginInput placeholder="Digite o seu email" />)}
 					</Form.Item>
-					<Form.Item label={<LoginLabel>Password</LoginLabel>}>
+					<Form.Item label={<LoginLabel>Senha</LoginLabel>}>
 						{getFieldDecorator('password', {
-							rules: [
-								{ required: true, message: 'The password must contain at least 3 characters!', min: 3 }
-							]
-						})(<LoginInput type="password" placeholder="Enter your password" />)}
+							rules: [ { required: true, message: 'A senha precisa ter no mínimo 3 dígitos', min: 3 } ]
+						})(<LoginInput type="password" placeholder="Digite a sua senha" />)}
 					</Form.Item>
 					<Form.Item>
 						{getFieldDecorator('remember', {
 							valuePropName: 'checked',
 							initialValue: true
-						})(<Checkbox>Remember me</Checkbox>)}
-						<LoginSubmitButton htmlType="submit">SING IN</LoginSubmitButton>
+						})(<Checkbox>Lembrar-me</Checkbox>)}
+						<LoginSubmitButton htmlType="submit">Entrar</LoginSubmitButton>
 					</Form.Item>
 				</Form>
 			</Spin>

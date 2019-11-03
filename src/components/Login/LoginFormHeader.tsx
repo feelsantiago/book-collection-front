@@ -9,11 +9,13 @@
 import React, { FunctionComponent } from 'react';
 
 import { LoginLogo, LoginCardHeader, LoginCardSubTitle } from '../../assets/styles/components/LoginForm';
+import logo from '../../assets/images/acervo-logo.png';
 
 const LoginFormHeader: FunctionComponent = () => {
 	return (
 		<LoginCardHeader>
-			<LoginCardSubTitle>Reports</LoginCardSubTitle>
+			<LoginLogo src={logo} />
+			<LoginCardSubTitle>Acervo</LoginCardSubTitle>
 		</LoginCardHeader>
 	);
 };
