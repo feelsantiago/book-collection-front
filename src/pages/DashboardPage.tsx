@@ -1,7 +1,8 @@
 import React, { FunctionComponent } from 'react';
+import SearchBook from '../components/Search/SearchBook';
 
 const DashboardPage: FunctionComponent = () => {
-	return <h1>Dashboard</h1>;
+	return <SearchBook />;
 };
 
 export default DashboardPage;
