@@ -3,6 +3,9 @@ import { Form, Row, Col, Input, Button, Select } from 'antd';
 import { FormComponentProps } from 'antd/lib/form';
 import { WrappedFormUtils } from 'antd/lib/form/Form';
 
+import authService from '../../services/auth-service';
+import { SearchButton, AddButton } from '../../assets/styles/components/SearchBook';
+
 const { Option } = Select;
 
 const handleSubmit = (
@@ -25,6 +28,9 @@ const SearchBook: FunctionComponent<FormComponentProps> = ({ form }) => {
 	const { getFieldDecorator } = form;
 	const [ loading, setLoading ] = useState(false);
 
+	const user = authService.getUser();
+	const role: string = user ? user.role : '';
+
 	return (
 		<Form
 			className="ant-advanced-search-form"
@@ -33,29 +39,29 @@ const SearchBook: FunctionComponent<FormComponentProps> = ({ form }) => {
 				handleSubmit(form, setLoading);
 			}}>
 			<Row gutter={24}>
-				<Col span={8}>
+				<Col md={8} sm={24}>
 					<Form.Item label="Nome">{getFieldDecorator('name')(<Input />)}</Form.Item>
 				</Col>
-				<Col span={8}>
+				<Col md={8} sm={24}>
 					<Form.Item label="Autor">
 						{getFieldDecorator('authors')(<Input placeholder="Separe por virgulas. Ex: Lacan, Foucault" />)}
 					</Form.Item>
 				</Col>
-				<Col span={8}>
+				<Col md={8} sm={24}>
 					<Form.Item label="Editora">
 						{getFieldDecorator('publish')(<Input placeholder="Separe por virgulas. Ex: Abril, Sanar" />)}
 					</Form.Item>
 				</Col>
-				<Col span={8}>
+				<Col md={8} sm={24}>
 					<Form.Item label="Assunto">
 						{getFieldDecorator('publish')(
 							<Input placeholder="Separe por virgulas. Ex: Psicanálise, Psicose" />
 						)}
 					</Form.Item>
 				</Col>
-				<Col span={8}>
+				<Col md={8} sm={24}>
 					<Form.Item label="Tipo">
-						{getFieldDecorator('type')(
+						{getFieldDecorator('type', { initialValue: 'fisico' })(
 							<Select defaultValue="digital">
 								<Option value="fisico">Fisico</Option>
 								<Option value="digital">Digital</Option>
@@ -63,11 +69,11 @@ const SearchBook: FunctionComponent<FormComponentProps> = ({ form }) => {
 						)}
 					</Form.Item>
 				</Col>
-				<Col span={8}>
+				<Col md={8} sm={24}>
 					<Form.Item label="Biblioteca">
-						{getFieldDecorator('library')(
-							<Select defaultValue="digital">
-								<Option value="fisico">Virtual</Option>
+						{getFieldDecorator('library', { initialValue: 'virtual' })(
+							<Select>
+								<Option value="virtual">Virtual</Option>
 								<Option value="glacy">Glacy</Option>
 								<Option value="helvia">Hélvia</Option>
 							</Select>
@@ -76,13 +82,12 @@ const SearchBook: FunctionComponent<FormComponentProps> = ({ form }) => {
 				</Col>
 			</Row>
 			<Row>
-				<Col span={24} style={{ textAlign: 'right' }}>
-					<Button type="primary" htmlType="submit">
+				<Col md={24} style={{ textAlign: 'right' }}>
+					{role !== 'user' ? <Button type="link">Novo Livro</Button> : null}
+					<SearchButton type="primary" htmlType="submit">
 						Search
-					</Button>
-					<Button style={{ marginLeft: 8 }} onClick={() => handleReset(form)}>
-						Clear
-					</Button>
+					</SearchButton>
+					<SearchButton onClick={() => handleReset(form)}>Clear</SearchButton>
 				</Col>
 			</Row>
 		</Form>
