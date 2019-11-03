@@ -30,7 +30,6 @@ const SearchBook: FunctionComponent<FormComponentProps> = ({ form }) => {
 				e.preventDefault();
 				handleSubmit(form, setLoading);
 			}}>
-			>
 			<Row gutter={24}>
 				<Col span={8}>
 					<Form.Item label="Nome">{getFieldDecorator('name')(<Input />)}</Form.Item>
