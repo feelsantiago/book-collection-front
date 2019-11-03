@@ -9,12 +9,10 @@
 import React, { FunctionComponent } from 'react';
 
 import { LoginLogo, LoginCardHeader, LoginCardSubTitle } from '../../assets/styles/components/LoginForm';
-import logo from '../../assets/images/kixpay-logo.png';
 
 const LoginFormHeader: FunctionComponent = () => {
 	return (
 		<LoginCardHeader>
-			<LoginLogo alt="logo" src={logo} />
 			<LoginCardSubTitle>Reports</LoginCardSubTitle>
 		</LoginCardHeader>
 	);
