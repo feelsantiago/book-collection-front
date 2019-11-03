@@ -1,7 +1,9 @@
 import React, { FunctionComponent, useState } from 'react';
-import { Form, Row, Col, Input, Button, Icon } from 'antd';
+import { Form, Row, Col, Input, Button, Select } from 'antd';
 import { FormComponentProps } from 'antd/lib/form';
 import { WrappedFormUtils } from 'antd/lib/form/Form';
+
+const { Option } = Select;
 
 const handleSubmit = (
 	form: WrappedFormUtils | undefined,
@@ -47,7 +49,28 @@ const SearchBook: FunctionComponent<FormComponentProps> = ({ form }) => {
 				<Col span={8}>
 					<Form.Item label="Assunto">
 						{getFieldDecorator('publish')(
-							<Input placeholder="Separe por virgulas. Ex: Psicanalise, Psicose" />
+							<Input placeholder="Separe por virgulas. Ex: Psicanálise, Psicose" />
+						)}
+					</Form.Item>
+				</Col>
+				<Col span={8}>
+					<Form.Item label="Tipo">
+						{getFieldDecorator('type')(
+							<Select defaultValue="digital">
+								<Option value="fisico">Fisico</Option>
+								<Option value="digital">Digital</Option>
+							</Select>
+						)}
+					</Form.Item>
+				</Col>
+				<Col span={8}>
+					<Form.Item label="Biblioteca">
+						{getFieldDecorator('library')(
+							<Select defaultValue="digital">
+								<Option value="fisico">Virtual</Option>
+								<Option value="glacy">Glacy</Option>
+								<Option value="helvia">Hélvia</Option>
+							</Select>
 						)}
 					</Form.Item>
 				</Col>
