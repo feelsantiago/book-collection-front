@@ -22,8 +22,6 @@ const initialize = () => {
 };
 
 class ConfigService {
-	constructor () {}
-
 	get apiUrl () {
 		return environment.api_url;
 	}
