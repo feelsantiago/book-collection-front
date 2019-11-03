@@ -1,6 +1,5 @@
 import development from '../environments/development';
 import production from '../environments/production';
-import uat from '../environments/uat';
 
 export type EnvType = typeof development;
 const env = process.env.REACT_APP_ENVIRONMENT;
@@ -12,9 +11,6 @@ const initialize = () => {
 	switch (env) {
 		case 'production':
 			envObj = production;
-			break;
-		case 'uat':
-			envObj = uat;
 			break;
 		default:
 			envObj = development;
@@ -30,14 +26,6 @@ class ConfigService {
 
 	get apiUrl () {
 		return environment.api_url;
-	}
-
-	get cubeApiUrl () {
-		return environment.cube_api_url;
-	}
-
-	get cubeJsToken () {
-		return environment.cube_js_token;
 	}
 }
 
